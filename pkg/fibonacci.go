@@ -1,0 +1,45 @@
+package pkg
+
+import (
+    "context"
+    "github.com/go-redis/redis/v8"
+	"strconv"
+	"fmt"
+	
+)
+
+var ctx = context.Background()
+
+func Fib(n int) (int) {
+	rdb := redis.NewClient(&redis.Options{
+		Addr:     "localhost:6379",
+		Password: "", // no password set
+		DB:       0,  // use default DB
+	})
+	
+    res, err := rdb.Get(ctx, strconv.Itoa(n)).Result()	
+    if err == redis.Nil {
+    if n == 0 {
+        return 0
+    } else if n == 1 {
+		return 1
+	} else {
+		res := Fib(n-1) + Fib(n-2)
+		err = rdb.Set(ctx, strconv.Itoa(n), strconv.Itoa(res), 0).Err()
+    if err != nil {
+        panic(err)
+    }
+		return res
+	} 
+} else {
+	res2, _ := strconv.Atoi(res)
+	return res2
+}
+}
+
+func FibSlice(n1 int, n2 int) {
+	for i:=n1; i<n2+1; i++ {
+	fmt.Println(i, Fib(i))
+	}
+
+}
