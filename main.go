@@ -1,16 +1,15 @@
 package main
- 
+
 import (
 	"fibo/internal/app/apiserver"
-	"fibo/pkg"
-	"github.com/gin-gonic/gin"
+	"github.com/gorilla/mux"
+	"log"
+	"net/http"
 )
 
-
-
 func main() {
-	router := gin.Default()
-	router.POST("/employee", handler.FiboCounter)
-	pkg.FibSlice(0, 11)
 
+	router := mux.NewRouter()
+	router.HandleFunc("/fibo", apiserver.FiboCounter)
+	log.Fatal(http.ListenAndServe(":8000", router))
 }

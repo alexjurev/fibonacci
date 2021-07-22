@@ -4,7 +4,7 @@ import (
     "context"
     "github.com/go-redis/redis/v8"
 	"strconv"
-	"fmt"
+	
 	
 )
 
@@ -37,9 +37,14 @@ func Fib(n int) (int) {
 }
 }
 
-func FibSlice(n1 int, n2 int) {
+func FibSlice(n1 int, n2 int) ([]int, []int) {
+	var ret1 []int
+	var ret2 []int
 	for i:=n1; i<n2+1; i++ {
-	fmt.Println(i, Fib(i))
+		ret1= append(ret1, i)
+		ret2 = append(ret2,Fib(i))
+	//fmt.Println(i, Fib(i))
 	}
+	return ret1, ret2
 
 }
