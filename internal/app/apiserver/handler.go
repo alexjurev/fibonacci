@@ -15,7 +15,7 @@ type InputValues struct {
 
 type Result struct {
 	FirstValue []int 
-	SecondValue []int 
+	ResultValue []int 
 }
 
 func FiboCounter(w http.ResponseWriter, r *http.Request) {
@@ -25,7 +25,7 @@ func FiboCounter(w http.ResponseWriter, r *http.Request) {
 	_ = json.NewDecoder(r.Body).Decode(&inputValues)
 	
 	if r.Method == "POST" {
-		result.FirstValue, result.SecondValue = pkg.FibSlice(inputValues.FirstValue, inputValues.SecondValue)
+		result.FirstValue, result.ResultValue = pkg.FibSlice(inputValues.FirstValue, inputValues.SecondValue)
 		}
 		json.NewEncoder(w).Encode(result)
 	}

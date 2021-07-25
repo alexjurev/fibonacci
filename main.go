@@ -4,15 +4,15 @@ import (
 	"fibo/internal/app/apiserver"
 	"github.com/gorilla/mux"
 	"net/http"
-	"fmt"
+	
 	"log"
 	"fibo/internal/app/proto/api"
-	"fibo/pkg"
+	
 	"fibo/pkg/fibocounter"
 	"google.golang.org/grpc"
 	"net"
-	"strings"
-	"encoding/json"
+
+	
 )
 
 func main() {
@@ -25,11 +25,6 @@ func main() {
     }()
 	
 	//GRPC
-	
-	ret2 := pkg.FibSliceRPC(1, 4)
-	ret3, _ := json.Marshal(ret2)
-	ret4 := strings.Trim(string(ret3), "[]")
-	fmt.Println(ret4)
 	s := grpc.NewServer()
 	srv := &fibocounter.GRPCServer{}
 	api.RegisterFibonacciServer(s, srv)
