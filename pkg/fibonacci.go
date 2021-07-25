@@ -5,7 +5,6 @@ import (
     "github.com/go-redis/redis/v8"
 	"strconv"
 	
-	
 )
 
 var ctx = context.Background()
@@ -46,5 +45,17 @@ func FibSlice(n1 int, n2 int) ([]int, []int) {
 	//fmt.Println(i, Fib(i))
 	}
 	return ret1, ret2
+
+}
+
+func FibSliceRPC(n1 int, n2 int) ([]int32) {
+	
+	var ret2 []int32
+	for i:=n1; i<n2+1; i++ {
+		
+		ret2 = append(ret2,int32(Fib(i)))
+	
+	}
+	return ret2
 
 }

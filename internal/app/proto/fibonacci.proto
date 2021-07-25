@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "./api";
+
+service Fibonacci {
+    rpc FiboCount(FiboRequest) returns (FiboResponse) {}
+}
+
+message FiboRequest {
+    int32 n1 = 1;
+    int32 n2 = 2;
+}
+
+message FiboResponse {
+   string result = 1;
+}
+
