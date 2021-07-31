@@ -15,7 +15,7 @@ type GRPCServer struct {
 	api.UnimplementedFibonacciServer
 }
 
-// Add ...
+// Fibo ...
 func (s *GRPCServer) FiboCount(ctx context.Context, req *api.FiboRequest) (*api.FiboResponse, error) {
 	var ret2 []int32
 	ret2 = pkg.FibSliceRPC(int(req.GetN1()), int(req.GetN2()))
