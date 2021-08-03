@@ -8,7 +8,7 @@ docker run —name rdb -p 6379:6379 redis
 
 # Доступ по Rest:
 через Postman http://127.0.0.1:8000/fibo POST-запрос типа JSON {"first": n1,"second": n2}
-возвращает порядковые номера и сами значения
+ - программа возвращает порядковые номера и сами значения
 ![Postman](https://github.com/alexjurev/fibonacci/raw/main/postman.png)
 
 # Доступ по gRPC:
