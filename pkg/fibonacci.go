@@ -8,6 +8,7 @@ import (
 
 var ctx = context.Background()
 
+// Рекурсивная функция с проверкой данных в Redis
 func Fib(n int) (int) {
 	rdb := redis.NewClient(&redis.Options{
 		Addr:     "localhost:6379",
@@ -35,6 +36,7 @@ func Fib(n int) (int) {
 }
 }
 
+//Функция для вывода порядкового номера и значений
 func FibSlice(n1 int, n2 int) ([]int, []int) {
 	var ret1 []int
 	var ret2 []int
@@ -47,6 +49,7 @@ func FibSlice(n1 int, n2 int) ([]int, []int) {
 
 }
 
+// Функция для GRPC
 func FibSliceRPC(n1 int, n2 int) ([]int32) {	
 	var ret2 []int32
 	for i:=n1; i<n2+1; i++ {		

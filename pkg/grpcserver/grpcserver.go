@@ -1,10 +1,9 @@
-package fibocounter
+package grpcserver
 
 import (
 	"context"
-	"fibo/internal/app/proto/api"
-	"fibo/pkg"
-	
+	"fibo/proto/api"
+	"fibo/pkg"	
 	"strings"
 	"encoding/json"
 	
