@@ -15,5 +15,5 @@ docker run —name rdb -p 6379:6379 redis
 через утилиту Evans в командной строке 
 evans fibo/proto/fibonacci.proto -p 8080
 далее вызов функции FiboCount
-![Evans](https://github.com/alexjurev/fibonacci/raw/main/evans.png)
+![Evans](https://github.com/alexjurev/fibonacci/raw/main/grpc.png)
 
