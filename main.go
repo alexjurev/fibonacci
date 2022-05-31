@@ -2,13 +2,13 @@ package main
 
 import (
 	"fibo/pkg/apiserver"
-	"github.com/gorilla/mux"
-	"net/http"
-	"fibo/proto/api"
-	"log"
 	"fibo/pkg/grpcserver"
+	"fibo/proto/api"
+	"github.com/gorilla/mux"
 	"google.golang.org/grpc"
+	"log"
 	"net"
+	"net/http"
 )
 
 func main() {
